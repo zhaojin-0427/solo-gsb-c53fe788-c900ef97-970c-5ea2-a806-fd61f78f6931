@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DB_PATH: /data/watermark.db
+      PORT: "8000"
+    volumes:
+      - watermark-data:/data
+    restart: unless-stopped
+
+volumes:
+  watermark-data:
